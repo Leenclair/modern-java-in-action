@@ -19,20 +19,18 @@ public class Reducing {
         System.out.println("sum = " + sum);
 
         //post java8
-        sum = 0;
-        sum = numbers.stream().reduce(0, (a, b) -> a + b);
+        sum = numbers.stream().reduce(0, (a, b) -> a + b);//reduce(초깃값, 연산?)
+        //0+4 -> 4+5 -> 9+3 -> 12+9 -> 21
         System.out.println("sum = " + sum);
 
         int product = numbers.stream().reduce(1, (a, b) -> a * b);
         System.out.println("product = " + product);
 
-        sum = 0;
         sum = numbers.stream().reduce(0, Integer::sum);
         System.out.println("sum = " + sum);
 
         //not init reduce, return Optional
-//        numbers = new ArrayList<Integer>();
-        Optional<Integer> sumOpt = numbers.stream().reduce((a, b) -> a + b);
+        Optional<Integer> sumOpt = numbers.stream().reduce(Integer::sum);
         System.out.println("sumOpt = " + sumOpt);
 
         Optional<Integer> max = numbers.stream().reduce(Integer::max);

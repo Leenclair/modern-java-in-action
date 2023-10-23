@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static chap05.Dish.menu;
+
 public class Slicing {
 
     public static void main(String[] args) {
@@ -47,6 +49,13 @@ public class Slicing {
                 .skip(2)
                 .collect(Collectors.toList());
         System.out.println("dishes2 = " + dishes2);
+
+        //quiz
+        List<Dish> meatDishes = menu.stream()
+                .filter(d -> d.getType() == Dish.Type.MEAT)
+                .limit(2)
+                .toList();
+        meatDishes.forEach(System.out::println);
 
     }
 

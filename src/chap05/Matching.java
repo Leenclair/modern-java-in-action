@@ -3,12 +3,13 @@ package chap05;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import static chap05.Dish.menu;
 
 public class Matching {
 
     public static void main(String[] args) {
-
-        List<Dish> menu = Dish.menu;
 
         if(menu.stream().anyMatch(Dish::isVegetarian)){
             System.out.println("The menu is (somewhat) vegetarian friendly!!");
@@ -29,7 +30,7 @@ public class Matching {
         Optional<Integer> firstSquareDivisibleByThree = someNumbers.stream()
                 .map(n -> n * n)
                 .filter(n -> n % 3 == 0)
-                .findFirst();
+                .findFirst(); //9
         System.out.println("firstSquareDivisibleByThree = " + firstSquareDivisibleByThree);
 
     }
